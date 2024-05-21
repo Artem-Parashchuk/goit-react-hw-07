@@ -1,15 +1,19 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import s from "./ContactForm.module.css";
-import { addContact } from "../../redux/contactsSlice";
+
+import { Loader } from "../Loader/Loader";
+import { addContactThunk } from "../../redux/contacts/operations";
+import { selectIsLoading } from "../../redux/contacts/contactsSlice";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
 
   const handleSubmit = (values, option) => {
-    dispatch(addContact(values));
+    dispatch(addContactThunk({ name: values.name, number: values.number }));
     option.resetForm();
   };
 
@@ -25,7 +29,7 @@ const ContactForm = () => {
   });
 
   return (
-    <div className={s.form_wrap}>
+    <>
       <Formik
         onSubmit={handleSubmit}
         validationSchema={formSchema}
@@ -66,7 +70,8 @@ const ContactForm = () => {
           </button>
         </Form>
       </Formik>
-    </div>
+      {isLoading && <Loader />}
+    </>
   );
 };
 
