@@ -1,4 +1,3 @@
-// contactsSlice.js
 import { createSlice, createSelector, isAnyOf } from "@reduxjs/toolkit";
 import { addContactThunk, deleteContactThunk, fetchContactsThunk } from "./operations";
 import { selectNameFilter } from "../filters/filtersSlice";

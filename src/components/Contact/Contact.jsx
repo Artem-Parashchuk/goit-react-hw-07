@@ -2,7 +2,6 @@ import { GoPersonFill } from "react-icons/go";
 import { MdPhone } from "react-icons/md";
 import { useDispatch } from "react-redux";
 
-
 import s from "./Contact.module.css";
 import { deleteContactThunk } from "../../redux/contacts/operations";
 
