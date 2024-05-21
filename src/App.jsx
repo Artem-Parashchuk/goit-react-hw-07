@@ -5,7 +5,7 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import s from "./App.module.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchContactsThunk } from "./redux/contacts/contactsOps";
+import { fetchContactsThunk } from "./redux/contactsOps";
 
 
 function App() {
