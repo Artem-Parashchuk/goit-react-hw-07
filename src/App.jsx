@@ -5,7 +5,7 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import s from "./App.module.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchContactsThunk } from "./redux/contacts/operations";
+import { fetchContactsThunk } from "./redux/contacts/contactsOps";
 
 
 function App() {
@@ -20,8 +20,6 @@ function App() {
       <h1 className={s.title}>Phonebook</h1>
       <ContactForm />
       <SearchBox/>
-      <span className="loading loading-spinner text-error"></span>
-    
       <ContactList/>
     </div>
   );
